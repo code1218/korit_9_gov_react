@@ -14,6 +14,7 @@ function App02() {
     }
 
     const handleNameInputOnChange = (event) => {
+        console.log(name);
         setName(event.target.value);
     }
 
