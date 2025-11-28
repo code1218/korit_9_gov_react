@@ -16,6 +16,7 @@ function TodoInput({ todos, setTodos }) {
     const [ value, setValue ] = useState({
         writer: "",
         content: "",
+        age: "",
     });
 
     // input 내용 value 상태에 저장
@@ -45,11 +46,13 @@ function TodoInput({ todos, setTodos }) {
         setValue({
             writer: "",
             content: "",
+            age: "",
         });   // input 내용 초기화
     }
     
     return <div>
         <input type="text" name="writer" value={value.writer} onChange={handleOnChange} placeholder="작성자" />
+        <input type="text" name="age" value={value.age} onChange={handleOnChange} placeholder="나이" />
         <input type="text" name="content" value={value.content} onChange={handleOnChange} placeholder="내용" />
         <button onClick={handleOnClick}>등록</button>
     </div>
@@ -61,7 +64,7 @@ function TodoList({todos}) {
     // 객체 -> <li> 변환
     return <ul>
         {
-            todos.map(todo => <li>작성자: {todo.writer} 내용: {todo.content} 작성일: {todo.writeDate}</li>)
+            todos.map(todo => <li>작성자: {todo.writer} 작성자나이: {todo.age} 내용: {todo.content} 작성일: {todo.writeDate}</li>)
         }
     </ul>
 }
