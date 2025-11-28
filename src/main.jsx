@@ -4,13 +4,15 @@ import App02 from './ch02/App02';
 import Counter from './ch02/Counter';
 import App02_2 from './ch02/App02_2';
 import App02_3 from './ch02/App02_3';
+import App02_4 from './ch02/App02_4';
 
 const appObj = {
     ch01: <App01 />,
     ch02: <App02 />,
     ch02_2: <App02_2 />,
     ch02_3: <App02_3 />,
+    ch02_4: <App02_4 />,
     counter: <Counter />,
 }
 
-createRoot(document.getElementById('root')).render(appObj.ch02_3);
+createRoot(document.getElementById('root')).render(appObj.ch02_4);
