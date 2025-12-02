@@ -52,7 +52,16 @@ function Axios03() {
     const handleRegisterInputSubmitOnKeyDown = (e) => {
         if (e.key === 'Enter') {
             console.log(registerInputValue);
-            axios.post("http://192.168.2.101:8080/users", registerInputValue);
+            // const data = {
+            //     username: registerInputValue.username,
+            //     password: registerInputValue.password,
+            //     name: registerInputValue.name,
+            //     email: registerInputValue.email,
+            //     roles: [registerInputValue.role1, registerInputValue.role2],
+            // }
+            const {role1, role2, ...data} = registerInputValue;
+            data["roles"] = [role1, role2];
+            axios.post("http://192.168.2.101:8080/users", data);
         }
     }
 
@@ -82,7 +91,7 @@ function Axios03() {
             <div><input type="text" ref={registerInputRef.name}  placeholder="name" name="name" value={registerInputValue.name} onChange={handleRegisterInputOnChange} onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.email)} /></div>
             <div><input type="text" ref={registerInputRef.email} placeholder="email" name="email" value={registerInputValue.email} onChange={handleRegisterInputOnChange} onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.role1)} /></div>
             <div><input type="text" ref={registerInputRef.role1}  placeholder="role1" name="role1" value={registerInputValue.role1} onChange={handleRegisterInputOnChange} onKeyDown={(e) => handleRegisterInputNextFocusOnKeyDown(e, registerInputRef.role2)} /></div>
-            <div><input type="text" ref={registerInputRef.role2}  placeholder="role2" name="role2" value={registerInputValue.role2} onChange={handleRegisterInputOnChange} onKeyDown={(e) => handleRegisterInputSubmitOnKeyDown(e)}/></div>
+            <div><input type="text" ref={registerInputRef.role2}  placeholder="role2" name="role2" value={registerInputValue.role2} onChange={handleRegisterInputOnChange} onKeyDown={handleRegisterInputSubmitOnKeyDown}/></div>
             <button>등록</button>
         </div>
         <input type="text" 
@@ -109,8 +118,8 @@ function Axios03() {
                         <td>{u.password}</td>
                         <td>{u.name}</td>
                         <td>{u.email}</td>
-                        <td>{u.roles[0]}</td>
-                        <td>{u.roles[1]}</td>
+                        <td>{u.roles && u.roles[0]}</td>
+                        <td>{u.roles && u.roles[1]}</td>
                     </tr>)
                 }
             </tbody>
