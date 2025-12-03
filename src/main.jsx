@@ -14,6 +14,7 @@ import Axios01 from './ch04/Axios01';
 import Promise01 from './ch04/Promise01';
 import Axios02 from './ch04/Axios02';
 import Axios03 from './ch04/Axios03';
+import Axios04 from './ch04/Axios04';
 
 const appObj = {
     ch01: <App01 />,
@@ -30,7 +31,8 @@ const appObj = {
     axios01: <Axios01 />,
     axios02: <Axios02 />,
     axios03: <Axios03 />,
+    axios04: <Axios04 />,
     promise01: <Promise01 />,
 }
 
-createRoot(document.getElementById('root')).render(appObj.axios03);
+createRoot(document.getElementById('root')).render(appObj.axios04);
