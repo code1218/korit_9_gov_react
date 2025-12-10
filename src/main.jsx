@@ -23,6 +23,7 @@ import Router02 from './ch06/Router02';
 import Router03 from './ch06/Router03';
 import Router04 from './ch06/Router04';
 import Router05 from './ch06/Router05';
+import Css from './ch07/Css';
 
 const appObj = {
     ch01: <App01 />,
@@ -49,6 +50,7 @@ const appObj = {
     router03: <Router03 />,
     router04: <Router04 />,
     router05: <Router05 />,
+    css: <Css />,
 }
 
-createRoot(document.getElementById('root')).render(appObj.router05);
+createRoot(document.getElementById('root')).render(appObj.css);
