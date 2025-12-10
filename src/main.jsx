@@ -17,6 +17,7 @@ import Axios03 from './ch04/Axios03';
 import Axios04 from './ch04/Axios04';
 import Axios05 from './ch04/Axios05';
 import Auth01 from './ch05/Auth01';
+import Auth02 from './ch05/Auth02';
 
 const appObj = {
     ch01: <App01 />,
@@ -37,6 +38,7 @@ const appObj = {
     axios05: <Axios05 />,
     promise01: <Promise01 />,
     auth01: <Auth01 />,
+    auth02: <Auth02 />,
 }
 
-createRoot(document.getElementById('root')).render(appObj.auth01);
+createRoot(document.getElementById('root')).render(appObj.auth02);

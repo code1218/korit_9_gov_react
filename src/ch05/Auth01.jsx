@@ -41,7 +41,7 @@ function Auth01() {
             [e.target.name]: e.target.value,
         });
 
-        if (regexs[e.target.name].test(e.target.value)) {
+        if (regexs[e.target.name].regex.test(e.target.value)) {
             setInputMessage({
                 ...inputMessage,
                 [e.target.name]: "",
@@ -49,19 +49,24 @@ function Auth01() {
         } else {
             setInputMessage({
                 ...inputMessage,
-                [e.target.name]: "",
+                [e.target.name]: regexs[e.target.name].message,
             });
         }
     }
 
     const handleSignupOnClick = () => {
-
+        if (Object.values(inputMessage).map(message => !!message).includes(true)) {
+            alert("입력하신 가입정보를 다시 확인하세요.");
+            return;
+        }
+        signupRequest();
     }
 
     const signupRequest = async () => {
         try {
             const response = await axios.post("http://localhost:8080/api/auth/signup", inputValue);
             console.log(response);
+            alert("회원가입 완료.");
         } catch(error) {
             console.log(error);
         }
