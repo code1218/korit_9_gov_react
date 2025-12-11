@@ -12,11 +12,12 @@ export const useUserInfo = create(set => ({
         email: "",
         phone: "",
     },
-    setUserInfo: (user) => set({userInfo: user})
-}))
+    setUserInfo: (user) => set({userInfo: user}),
+    setUserInfo2: (key, value) => set(state => ({userInfo: {...state.userInfo, [key]: value,}})),
+}));
 
 export const useUserInfoList = create(set => ({
     userInfoList: [],
-    setUserInfoList: (user) => set((state) => ({userInfoList: [...state.userInfoList, user]})),
+    setUserInfoList: user => set(state => ({userInfoList: [...state.userInfoList, user,]})),
     // 매개변수로 넘어온 객체를 어떻게 리스트에 추가할지?
-}))
+}));
