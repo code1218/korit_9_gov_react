@@ -25,6 +25,8 @@ import Router04 from './ch06/Router04';
 import Router05 from './ch06/Router05';
 import Css from './ch07/Css';
 import Zustand01 from './ch08/Zustand01';
+import Zustand02 from './ch08/Zustand02';
+import Zustand03 from './ch08/Zustand03';
 
 const appObj = {
     ch01: <App01 />,
@@ -53,6 +55,8 @@ const appObj = {
     router05: <Router05 />,
     css: <Css />,
     zustand01: <Zustand01 />,
+    zustand02: <Zustand02 />,
+    zustand03: <Zustand03 />,
 }
 
-createRoot(document.getElementById('root')).render(appObj.zustand01);
+createRoot(document.getElementById('root')).render(appObj.zustand03);
